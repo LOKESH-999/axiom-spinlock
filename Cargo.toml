@@ -9,6 +9,7 @@ readme = "README.md"
 keywords = ["spinlock", "lock", "concurrency", "no_std", "atomic"]
 categories = ["concurrency", "no-std", "data-structures", "embedded"]
 documentation = "https://docs.rs/axiom-spinlock"
+license = "MIT"
 
 
 [features]
