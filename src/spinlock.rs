@@ -118,7 +118,7 @@ impl<T> SpinLock<T> {
             backoff.wait();
         }
 
-        SpinGuard { guard: &self }
+        SpinGuard { guard: self }
     }
 
     /// Unsafely releases the lock manually.
@@ -137,7 +137,7 @@ impl<T> SpinLock<T> {
     #[inline]
     pub fn try_lock(&self) -> Option<SpinGuard<'_, T>> {
         if !self.locked.swap(true, Acquire) {
-            Some(SpinGuard { guard: &self })
+            Some(SpinGuard { guard: self })
         } else {
             None
         }
@@ -157,7 +157,7 @@ impl<T> SpinLock<T> {
         let backoff = BackOff::new();
         for _ in 0..spins {
             if !self.locked.swap(true, Acquire) {
-                return Some(SpinGuard { guard: &self });
+                return Some(SpinGuard { guard: self });
             }
             backoff.wait();
         }
