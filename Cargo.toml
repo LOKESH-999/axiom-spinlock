@@ -1,8 +1,16 @@
 [package]
-name = "spinlock"
+name = "axiom-spinlock"
 version = "0.1.0"
 edition = "2021"
+authors = ["Lokesh N <lokiapm888@gmail.com>"]
+description = "A lightweight, no_std-compatible spinlock and exponential backoff implementation for low-level concurrent systems."
+repository = "https://github.com/LOKESH-999/axiom-spinlock"
+readme = "README.md"
+keywords = ["spinlock", "lock", "concurrency", "no_std", "atomic"]
+categories = ["concurrency", "no-std", "data-structures", "embedded"]
+documentation = "https://docs.rs/axiom-spinlock"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[dependencies]
+[features]
+default = ["std"]
+std = []
